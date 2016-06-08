@@ -1,0 +1,86 @@
+@mixin responsive($size) {
+	@if ($size == lessthanmedium) {
+		@include max-screen($break-md) {
+			@content;
+		}
+	}
+	@else if ($size == belowmedium) {
+		@include max-screen($break-md - 1) {
+			@content;
+		}
+	}
+	@else if ($size == lessthansmall) {
+		@include max-screen($break-sm) {
+			@content;
+		}
+	}
+	@else if ($size == belowsmall) {
+		@include max-screen($break-sm - 1) {
+			@content;
+		}
+	}
+	@else if ($size == morethansmall) {
+		@include min-screen($break-sm + 1) {
+			@content;
+		}
+	}
+	@else if($size == small) {
+		@include screen($break-sm + 1, $break-md) {
+			@content;
+		}
+	}
+	@else if($size == med) {
+		@include screen($break-md + 1, $break-lg) {
+			@content;
+		}
+	}
+	@else if ($size == large) {
+		@include min-screen($break-lg + 1) {
+			@content;
+		}
+	}
+	@else if ($size == lessthanlarge) {
+		@include max-screen($break-lg) {
+			@content;
+		}
+	}
+	@else if ($size == belowlarge) {
+		@include max-screen($break-lg - 1) {
+			@content;
+		}
+	}
+	@else if ($size == xlarge) {
+		@include min-screen($break-xlg + 1) {
+			@content;
+		}
+	}
+	@else if ($size == lessthanxlarge) {
+		@include max-screen($break-xlg) {
+			@content;
+		}
+	}
+	@else if ($size == belowxlarge) {
+		@include max-screen($break-xlg - 1) {
+			@content;
+		}
+	}
+}
+
+@mixin font-candal() {
+	font-family: 'Candal', sans-serif;
+}
+
+@mixin font-roboto() {
+	font-family: 'Roboto', sans-serif;
+}
+
+@mixin clearfix() {
+    &:before,
+    &:after {
+        content: "";
+        display: table;
+    }
+    &:after {
+        clear: both;
+    }
+}

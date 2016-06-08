@@ -1,0 +1,25 @@
+// bower:scss
+// endbower
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.clearfix {
+  &:before,
+  &:after {
+      content: "";
+      display: table;
+  }
+  &:after {
+      clear: both;
+  }
+}
+
+@import 'partials/base';
+@import 'partials/media-queries';
+@import 'partials/mixins';
+@import 'partials/type';
+@import 'partials/layout';
