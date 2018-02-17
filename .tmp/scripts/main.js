@@ -5,7 +5,11 @@
 	'use strict';
 
 	var winWidth = $(window).width(),
-	    breakLg = 960;
+	    breakLg = 960,
+	    date = new Date(),
+	    year = date.getFullYear();
+
+	$('.year').html(year);
 
 	$(window).resize(function () {
 		winWidth = $(window).width();
