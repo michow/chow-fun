@@ -14,7 +14,8 @@
 	display: none;
 	left: 30px;
 	position: absolute;
-	top: 50px;
+	top: 50%;
+  transform: translateY(-52%);
 	width: 412px;
 	.close {
 		@include font-candal();
@@ -23,12 +24,12 @@
 		border-radius: 50%;
 		color: $red;
 		height: 32px;
-		padding-top: 2px;
+		line-height: 20px;
 		position: absolute;
-		right: -20px;
+		right: -18px;
 		text-align: center;
 		text-decoration: none;
-		top: -20px;
+		top: -18px;
 		width: 32px;
 	}
 	img {
@@ -111,6 +112,10 @@
 		display: inline-block;
 		float: right;
 		padding-left: 5px;
+    svg {
+      font-size: 14px;
+      vertical-align: middle;
+    }
 	}
 	.name {
 		background-color: $white;
@@ -162,6 +167,7 @@
 		margin: 20px auto;
 		position: relative;
 		top: auto;
+    transform: none;
 	}
 }
 
