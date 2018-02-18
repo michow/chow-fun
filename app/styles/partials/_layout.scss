@@ -4,11 +4,6 @@ body {
   padding: 0;
 }
 
-header {
-  padding: 20px 0;
-  text-align: center;
-}
-
 footer {
   padding: 40px 0;
   text-align: center;
@@ -66,6 +61,7 @@ footer {
   margin: 0 auto 20px auto;
   position: relative;
   width: 960px;
+  padding-top: 45px;
 }
 
 .page {
@@ -130,8 +126,8 @@ footer {
 }
 
 @include max-screen(500px) {
-  footer {
-    background-position: 55% top;
+  .main {
+    padding-top: 0;
   }
   .page {
     box-shadow: none;
@@ -143,11 +139,17 @@ footer {
     }
   }
   .medallion {
-    display: none;
+    height: 250px;
+    width: 250px;
+    padding-top: 50px;
+    img {
+      height: 170px;
+      width: auto;
+    }
   }
   .pattern {
-    background-color: transparent;
-    background-image: none;
+    padding: 30px 0 10px 0;
+    background-size: 120px 205px;
   }
   .default {
     padding: 0 0 50px 0;
