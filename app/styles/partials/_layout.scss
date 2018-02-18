@@ -17,9 +17,9 @@ footer {
     border: 2px solid $black;
     border-left: 0;
     display: inline-block;
-    padding: 2px 8px 2px 12px;
+    padding: 3px 7px 0 11px;
     position: relative;
-    margin-left: 50px;
+    margin-left: 62px;
     &::before,
     &::after {
       content: '';
@@ -28,7 +28,7 @@ footer {
       position: absolute;
       height: 90px;
       width: 90px;
-      left: -70px;
+      left: -72px;
       top: -30px;
     }
     &::before {
@@ -41,7 +41,7 @@ footer {
   }
   li {
     display: inline-block;
-    margin: 0 5px;
+    margin: 0 7px;
   }
   a {
     color: $black;
@@ -50,6 +50,9 @@ footer {
     text-transform: uppercase;
     &:hover {
       color: $red;
+    }
+    svg {
+      vertical-align: middle;
     }
   }
   p {
