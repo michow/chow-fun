@@ -162,6 +162,43 @@
   }
 }
 
+@include min-screen(1500px) {
+  .menu {
+    h2 {
+      font-size: 36px;
+      margin-top: 40px;
+      margin-bottom: 25px;
+    }
+    p {
+      font-size: 15px;
+      line-height: 19px;
+    }
+    .desc {
+      font-size: 14px;
+    }
+    .icons svg {
+      font-size: 16px;
+    }
+    .dots {
+      background-position-y: 13px;
+    }
+    .pricing {
+      width: 380px;
+    }
+  }
+  .legend {
+    font-size: 12px;
+    margin-top: 70px;
+  }
+  .usage {
+    font-size: 12px;
+  }
+  .preview {
+    width: 480px;
+    left: 55px;
+  }
+}
+
 @include max-screen(960px) {
   .preview {
     left: auto;
