@@ -106,6 +106,51 @@ footer {
   margin: 0 auto 40px auto;
   text-align: center;
   width: 370px;
+  img {
+    width: 280px;
+    height: auto;
+  }
+}
+
+@include min-screen(1500px) {
+  .main {
+    width: 1200px;
+  }
+  .page {
+    width: 590px;
+    min-height: 800px;
+  }
+  .medallion {
+    height: 450px;
+    width: 450px;
+    padding-top: 90px;
+    img {
+      width: 340px;
+      height: auto;
+    }
+  }
+  footer {
+    padding-top: 60px;
+    p {
+      font-size: 12px;
+    }
+    a {
+      font-size: 30px;
+    }
+    ul {
+      &::before,
+      &::after {
+        height: 115px;
+        width: 115px;
+        top: -41px;
+        left: -95px;
+      }
+      margin-left: 80px;
+    }
+    li {
+      margin: 0 8px;
+    }
+  }
 }
 
 @include max-screen(960px) {
