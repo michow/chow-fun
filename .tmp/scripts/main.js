@@ -15,6 +15,10 @@
 		winWidth = $(window).width();
 	});
 
+	$('.corner-curl').on('click', function () {
+		$('.flip').toggleClass('flipped');
+	});
+
 	$('.pricing').on('click', function () {
 		var $pricing = $(this),
 		    $entree = $pricing.parent(),

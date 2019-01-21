@@ -62,7 +62,6 @@
 
 .menu {
   background-color: $white;
-  padding: 20px;
   h2 {
     @extend .h1;
     margin-bottom: 20px;
@@ -200,32 +199,35 @@
 }
 
 .corner-curl {
+  .flipped &  {
+    display: none;
+  }
   cursor: pointer;
   bottom: 0;
   height: 50px;
   position: absolute;
-  right: 4px;
+  right: 0;
   width: 50px;
   .curl {
     background-color: #ccc7c4;
-    height: 50px;
-    width: 50px;
     bottom: -50px;
-    right: -50px;
+    height: 50px;
     position: absolute;
+    right: -50px;
     transition: all .25s;
+    width: 50px;
   }
   .corner-mask {
     bottom: 0;
     height: 50px;
+    overflow: hidden;
     position: absolute;
     right: 0;
     width: 50px;
-    overflow: hidden;
   }
   .cover {
-    position: absolute;
     bottom: -60px;
+    position: absolute;
     right: -60px;
     transition: all .25s;
   }
@@ -235,14 +237,14 @@
       right: 0;
       z-index: 5;
       &::after {
-        position: absolute;
-        top: 0;
-        right: 0;
-        content: "";
         background: linear-gradient(135deg, #ddd 17%, #dfdfdf 18%, #f5f5f5 30%, #f8f8f8 34%, #eee 48%, #3d3b3a 50%, #ccc7c4 58%);
+        content: "";
         display: block;
-        width: 100%;
         height: 100%;
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 100%;
         z-index: 6;
       }
     }
