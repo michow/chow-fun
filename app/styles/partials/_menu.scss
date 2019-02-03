@@ -198,67 +198,6 @@
   }
 }
 
-.corner-curl {
-  .flipped &  {
-    display: none;
-  }
-  cursor: pointer;
-  bottom: 0;
-  height: 50px;
-  position: absolute;
-  right: 0;
-  width: 50px;
-  .curl {
-    background-color: #ccc7c4;
-    bottom: -50px;
-    height: 50px;
-    position: absolute;
-    right: -50px;
-    transition: all .25s;
-    width: 50px;
-  }
-  .corner-mask {
-    bottom: 0;
-    height: 50px;
-    overflow: hidden;
-    position: absolute;
-    right: 0;
-    width: 50px;
-  }
-  .cover {
-    bottom: -60px;
-    position: absolute;
-    right: -60px;
-    transition: all .25s;
-  }
-  &:hover {
-    .curl {
-      bottom: 0;
-      right: 0;
-      z-index: 5;
-      &::after {
-        background: linear-gradient(135deg, #ddd 17%, #dfdfdf 18%, #f5f5f5 30%, #f8f8f8 34%, #eee 48%, #3d3b3a 50%, #ccc7c4 58%);
-        content: "";
-        display: block;
-        height: 100%;
-        position: absolute;
-        right: 0;
-        top: 0;
-        width: 100%;
-        z-index: 6;
-      }
-    }
-    .cover {
-      background: linear-gradient(135deg, rgba(200,200,200,0) 46%, #ccc7c4 47%);
-      bottom: -10px;
-      height: 60px;
-      right: -10px;
-      width: 60px;
-      z-index: 1;
-    }
-  }
-}
-
 @include max-screen(960px) {
   .preview {
     left: auto;

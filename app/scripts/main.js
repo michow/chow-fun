@@ -1,73 +1,73 @@
 /* globals jQuery */
 (function($) {
-	'use strict';
+  'use strict';
 
-	var
-		winWidth = $( window ).width(),
-		breakLg = 960,
-		date = new Date(),
-		year = date.getFullYear()
-	;
+  var
+    winWidth = $( window ).width(),
+    breakLg = 960,
+    date = new Date(),
+    year = date.getFullYear()
+  ;
 
-	$('.year').html(year);
+  $('.year').html(year);
 
-	$( window ).resize(function() {
-		winWidth = $( window ).width();
-	});
-
-  $('.corner-curl').on('click', function() {
-    $('.flip').toggleClass('flipped');
+  $( window ).resize(function() {
+    winWidth = $( window ).width();
   });
 
-	$('.pricing').on('click', function() {
-		var
-			$pricing = $(this),
-			$entree = $pricing.parent(),
-			$preview = $entree.find('.preview'),
-			$default = $('.default'),
-			$previous = $('.preview:visible')
-		;
+  $('.corner-curl').on('click', function() {
+    $('.flip').addClass('flipped');
+  });
 
-		if(winWidth > breakLg) {
-			$('.pricing').removeClass('active');
-			$pricing.addClass('active');
+  $('.pricing').on('click', function() {
+    var
+      $pricing = $(this),
+      $entree = $pricing.parent(),
+      $preview = $entree.find('.preview'),
+      $default = $('.default'),
+      $previous = $('.preview:visible')
+    ;
 
-			if($('.default:visible').length) {
-				$default.fadeOut('fast', function() {
-					$preview.fadeIn('fast');
-				});
-			}
+    if(winWidth > breakLg) {
+      $('.pricing').removeClass('active');
+      $pricing.addClass('active');
 
-			if($previous.length) {
-				$previous.fadeOut('fast', function() {
-					$preview.fadeIn('fast');
-				});
-			}
-		}
-		else {
-			$pricing.addClass('active');
-			$preview.slideDown('fast');
-		}
-	});
+      if($('.default:visible').length) {
+        $default.fadeOut('fast', function() {
+          $preview.fadeIn('fast');
+        });
+      }
 
-	$('.close').on('click', function(e) {
-		e.preventDefault();
+      if($previous.length) {
+        $previous.fadeOut('fast', function() {
+          $preview.fadeIn('fast');
+        });
+      }
+    }
+    else {
+      $pricing.addClass('active');
+      $preview.slideDown('fast');
+    }
+  });
 
-		var
-			$preview = $(this).parent()
-		;
+  $('.close').on('click', function(e) {
+    e.preventDefault();
 
-		if(winWidth > breakLg) {
-			$('.pricing').removeClass('active');
+    var
+      $preview = $(this).parent()
+    ;
 
-			$preview.fadeOut('fast', function() {
-				$('.default').fadeIn('fast');
-			});
-		}
-		else {
-			$preview.prev().removeClass('active');
-			$preview.slideUp('fast');
-		}
-	});
+    if(winWidth > breakLg) {
+      $('.pricing').removeClass('active');
+
+      $preview.fadeOut('fast', function() {
+        $('.default').fadeIn('fast');
+      });
+    }
+    else {
+      $preview.prev().removeClass('active');
+      $preview.slideUp('fast');
+    }
+  });
 
 })(jQuery);
