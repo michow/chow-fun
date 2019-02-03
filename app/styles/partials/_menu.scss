@@ -1,18 +1,35 @@
 .usage {
   @include font-roboto();
-  display: block;
   font-size: 10px;
   font-style: italic;
   line-height: 10px;
   text-align: center;
+  span {
+    display: none;
+    @include max-screen(960px) {
+      display: block;
+    }
+  }
+}
+
+.cta {
+  @include font-candal();
+  color: $red;
+  margin-top: 15px;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  &:hover {
+    text-decoration: underline;
+  }
 }
 
 .preview {
   border: 5px solid $red;
   border-radius: 10px;
-  box-shadow: 2px 2px 7px rgba(0, 0, 0, .7);
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, .7);
   display: none;
-  left: 30px;
+  left: -458px;
   position: absolute;
   top: 50%;
   transform: translateY(-51%);
@@ -23,6 +40,7 @@
     border: 5px solid $red;
     border-radius: 50%;
     color: $red;
+    display: none;
     height: 32px;
     line-height: 20px;
     position: absolute;
@@ -47,22 +65,75 @@
     padding: 20px;
   }
   .cta {
-    @include font-candal();
-    color: $red;
-    display: block;
-    margin-top: 15px;
-    text-align: center;
-    text-decoration: none;
-    text-transform: uppercase;
-    &:hover {
-      text-decoration: underline;
+    display: none;
+  }
+  @include max-screen(960px) {
+    box-shadow: none;
+    .close {
+      display: block;
     }
+    .cta {
+      display: block;
+    }
+  }
+  @include min-screen(1500px) {
+    width: 480px;
+    left: -550px;
+  }
+}
+
+.entree {
+  margin-bottom: 20px;
+  @include min-screen(961px) {
+    &:hover {
+      .chili {
+        display: block;
+      }
+      .pricing {
+        position: relative;
+      }
+      .preview {
+        display: block;
+      }
+    }
+  }
+}
+
+.chili {
+  background: url('../images/chili.png') 0 0 no-repeat;
+  background-size: cover;
+  display: none;
+  height: 19px;
+  left: -33px;
+  position: absolute;
+  top: 0;
+  width: 25px;
+}
+
+.pricing {
+  margin: 0 auto;
+  width: 300px;
+  &.active {
+    position: relative;
+    .chili {
+      display: block;
+    }
+  }
+  a,
+  a:hover,
+  a:focus,
+  a:active,
+  a:visited {
+    color: $black;
+    text-decoration: none;
+  }
+  @include min-screen(1500px) {
+    width: 380px;
   }
 }
 
 .menu {
   background-color: $white;
-  padding: 20px;
   h2 {
     @extend .h1;
     margin-bottom: 20px;
@@ -75,32 +146,6 @@
   .desc {
     font-size: 12px;
     font-style: italic;
-  }
-  .entree {
-    margin-bottom: 20px;
-    &:hover {
-      cursor: pointer;
-    }
-  }
-  .chili {
-    background: url('../images/chili.png') 0 0 no-repeat;
-    background-size: cover;
-    display: none;
-    height: 19px;
-    left: -33px;
-    position: absolute;
-    top: 0;
-    width: 25px;
-  }
-  .pricing {
-    margin: 0 auto;
-    width: 300px;
-    &.active {
-      position: relative;
-      .chili {
-        display: block;
-      }
-    }
   }
   .dots {
     @include clearfix();
@@ -182,9 +227,6 @@
     .dots {
       background-position-y: 13px;
     }
-    .pricing {
-      width: 380px;
-    }
   }
   .legend {
     font-size: 12px;
@@ -192,10 +234,6 @@
   }
   .usage {
     font-size: 12px;
-  }
-  .preview {
-    width: 480px;
-    left: 55px;
   }
 }
 

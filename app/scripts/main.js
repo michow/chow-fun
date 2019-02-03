@@ -1,69 +1,52 @@
 /* globals jQuery */
 (function($) {
-	'use strict';
+  'use strict';
 
-	var
-		winWidth = $( window ).width(),
-		breakLg = 960,
-		date = new Date(),
-		year = date.getFullYear()
-	;
+  var
+    winWidth = $( window ).width(),
+    breakLg = 960,
+    date = new Date(),
+    year = date.getFullYear()
+  ;
 
-	$('.year').html(year);
+  $('.year').html(year);
 
-	$( window ).resize(function() {
-		winWidth = $( window ).width();
-	});
+  $( window ).resize(function() {
+    winWidth = $(window).width();
+  });
 
-	$('.pricing').on('click', function() {
-		var
-			$pricing = $(this),
-			$entree = $pricing.parent(),
-			$preview = $entree.find('.preview'),
-			$default = $('.default'),
-			$previous = $('.preview:visible')
-		;
+  $('.corner-curl').on('click', function() {
+    $('.flip').addClass('flipped');
+  });
 
-		if(winWidth > breakLg) {
-			$('.pricing').removeClass('active');
-			$pricing.addClass('active');
+  $('.unflip').on('click', function(e) {
+    e.preventDefault();
+    $('.flip').removeClass('flipped');
+  });
 
-			if($('.default:visible').length) {
-				$default.fadeOut('fast', function() {
-					$preview.fadeIn('fast');
-				});
-			}
+  // mobile open preview
+  $('.pricing a').on('click', function(e) {
+    if(winWidth <= breakLg) {
+      e.preventDefault();
 
-			if($previous.length) {
-				$previous.fadeOut('fast', function() {
-					$preview.fadeIn('fast');
-				});
-			}
-		}
-		else {
-			$pricing.addClass('active');
-			$preview.slideDown('fast');
-		}
-	});
+      var
+        $pricing = $(this).parent(),
+        $preview = $pricing.next()
+      ;
 
-	$('.close').on('click', function(e) {
-		e.preventDefault();
+      $pricing.addClass('active');
+      $preview.slideDown('fast');
+    }
+  });
 
-		var
-			$preview = $(this).parent()
-		;
+  // mobile close preview
+  $('.close').on('click', function(e) {
+    e.preventDefault();
 
-		if(winWidth > breakLg) {
-			$('.pricing').removeClass('active');
+    var $preview = $(this).parent();
 
-			$preview.fadeOut('fast', function() {
-				$('.default').fadeIn('fast');
-			});
-		}
-		else {
-			$preview.prev().removeClass('active');
-			$preview.slideUp('fast');
-		}
-	});
+    $preview.prev().removeClass('active');
+    $preview.slideUp('fast');
+  });
 
 })(jQuery);
