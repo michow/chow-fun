@@ -19,6 +19,11 @@
     $('.flip').addClass('flipped');
   });
 
+  $('.unflip').on('click', function (e) {
+    e.preventDefault();
+    $('.flip').removeClass('flipped');
+  });
+
   // mobile open preview
   $('.pricing a').on('click', function (e) {
     if (winWidth <= breakLg) {
